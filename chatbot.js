@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 });
  
 app.get('/webhook', function(req, res) { // Đây là path để validate tooken bên app facebook gửi qua
-  if (req.query['hub.verify_token'] === VALIDATION_TOKEN) {
+  if (req.query['hub.verify_token'] === 'chatbot') {
     res.send(req.query['hub.challenge']);
   } else
   res.send('Error, wrong validation token');
@@ -46,7 +46,7 @@ function sendMessage(senderId, message) {
   request({
     url: 'https://graph.facebook.com/v2.6/me/messages',
     qs: {
-      access_token: PAGE_ACCESS_TOKEN,
+      access_token: 'EAAQq8Ilq81cBAHUwpb32umq4UZBr1f4S46kwSVtz2xg9ktDKoKrwZAdZBSKjJriuwL7od1HBGyaZAgAAAbqqzFsHutODZBBhQTd103mc7fszrR5TG4Jvki2CfQGBNrk1tZAhh4KbwMLClIVLjjemDBTWY8x5ZCxDENAKNuZCryvWvAZDZD',
     },
     method: 'POST',
     json: {
